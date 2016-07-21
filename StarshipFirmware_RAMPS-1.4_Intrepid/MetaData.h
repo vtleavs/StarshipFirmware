@@ -1,8 +1,14 @@
 
+#ifndef _METADATA_H_
+#define _METADATA_H_
+
 struct MetaData  // contains information about the program
 {
-  public:
-    MetaData(): version_num(0.01), hardware_class("Intrepid"), control_scheme("RAMPS 1.4"){}
+  //public:
+    MetaData(): 
+      version_num(0.01), 
+      hardware_class("Intrepid"), 
+      control_scheme("RAMPS 1.4"){}
   
     float version_num;// = 0.01;
     String hardware_class;// = "Intrepid";
@@ -11,3 +17,5 @@ struct MetaData  // contains information about the program
 };
 
 MetaData metadata;
+
+#endif
