@@ -90,6 +90,24 @@ void M203(short x, short y, short z, short e) { M200(x, y, z, e); } // Set max v
 void M207(float p, float r, float z, float e); // set axis max (polar)
 void M208(float x, float y, float z, float e) { M207(x, y, z, e); } // set axis max (linear)
 
-void M220(); //
+void M220(char s); // Set speed factor percentage
+void M221(char s); // Set extruder speed factor percentage
+
+void M226(); // G-Code initiated pause
+
+void M300(int s, int p); // Play beep sound
+
+void M301(char p, char i, char d); // Set Extruder PID
+void M302(short s, bool p); // Allow cold extrudes
+void M304(char P, char i, char d); // Set Bed PID
+
+void M349(char p, char r, char z, char e, bool i); // Set microstepping mode (linear)
+void M350(char x, char y, char z, char e, bool i); // Set microstepping mode (linear)
+
+
+
+
+
+
 
 
