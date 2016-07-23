@@ -9,6 +9,7 @@
 
 void body()
 {
+    delay(100);
     Serial.println("Starship 3D");
     Serial.print("Class: ");
     Serial.println(metadata.hardware_class);
@@ -17,8 +18,6 @@ void body()
     Serial.println(metadata.version_num);
   
     Serial.println();
-
-
 }
 
 #endif
