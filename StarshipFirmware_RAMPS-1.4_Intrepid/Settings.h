@@ -2,8 +2,9 @@
 #ifndef _SETTINGS_H_
 #define _SETTINGS_H_
 
-struct Settings // contains machine and build settings
+class Settings // contains machine and build settings
 {
+  public:
     Settings(): 
         units("mm"),
         step_angle(1.8){}

@@ -2,9 +2,9 @@
 #ifndef _METADATA_H_
 #define _METADATA_H_
 
-struct MetaData  // contains information about the program
+class MetaData  // contains information about the program
 {
-  //public:
+  public:
     MetaData(): 
       version_num(0.01), 
       hardware_class("Intrepid"), 
