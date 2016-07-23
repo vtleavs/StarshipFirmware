@@ -1,13 +1,13 @@
 
-#ifndef _BODY_CPP_
-#define _BODY_CPP_
+#ifndef _MESSAGES_CPP_
+#define _MESSAGES_CPP_
 
 #include <Arduino.h>
 
 #include "MetaData.h"
 #include "Settings.h"
 
-void body()
+void header()
 {
     delay(100);
     Serial.println("Starship 3D");
@@ -16,7 +16,6 @@ void body()
     Serial.print(metadata.control_scheme);
     Serial.print(" Firmware version ");
     Serial.println(metadata.version_num);
-  
     Serial.println();
 }
 
