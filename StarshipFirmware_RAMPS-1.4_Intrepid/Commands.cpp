@@ -20,21 +20,8 @@ void parse_command(String command)
   // Parse first letter
   char command_letter = command[0];
 
-  /*
-  // Parse trailing number
-  char current = command[1];
-  char cstart = 1;
-  char cstop = 1;
-  while(current != '\n' && current != ' ')
-  {
-    cstop++;
-    current = command[cstop];
-  }
-  short command_number = (short)command.substring(cstart, cstop).toInt();
-  */
-
-  char letters[10];
-  float numbers[10];
+  char letters[13];
+  float numbers[13];
   char count = -1;
   char current = command[0];
   char cstart = 0;
@@ -79,7 +66,8 @@ void parse_command(String command)
                 break;
       case 21 : G21();
                 break;
-      default : break;
+      default : Serial.println("Command Unsupported");
+                break;
     }
   }
   else if(letters[0] == 'M')
@@ -88,7 +76,8 @@ void parse_command(String command)
     {
       case 5 : M5();
                 break;
-      default : break;
+      default : Serial.println("Command Unsupported");
+                break;
     }
   }
 }
