@@ -57,6 +57,7 @@ void M24(); // Start/Resume SD print
 void M25(); // Pause SD print
 void M26(char letters[], float numbers[]); // Set SD position in bits
 void M27(); // Report SD print status
+void M29(); // Stop SD logging
 
 /*
     M28-M30, SD write: not yet implemented
@@ -97,9 +98,9 @@ void M121(); // Stack Pop
 
 void M122(); // Send diagnostic info
 
-void M140(short s); // Set bed temperature
+void M140(char letters[], float numbers[]); // Set bed temperature
 void M144(); // Set bed to standby temp
-void M190(short s); // Wait for bed to reach temp
+void M190(char letters[], float numbers[]); // Wait for bed to reach temp
 
 void M200(char letters[], float numbers[]); // Set max acceleration units/second^2 (polar)
 void M201(char letters[], float numbers[]); // Set max acceleration units/second^2 (linear)
@@ -124,4 +125,39 @@ void M304(char letters[], float numbers[]); // Set Bed PID
 void M349(char letters[], float numbers[]); // Set microstepping mode (polar)
 void M350(char letters[], float numbers[]); // Set microstepping mode (linear)
 
+void M360(); // Report firmware config
+
+void M400(); // Wait for buffer to empty
+
+void M404(char letters[], float numbers[]); // Filament width and Nozzle diameter
+void M407(); // Display filament diameter
+
+void M502(); // Revert to factory settings
+void M503(); // Return print settings
+
+void M556(char letters[], float numbers[]); // Set axis compensation
+
+void M562(); // Reset temp fault
+
+void M577(char letters[], float numbers[]); // Wait for endstop to be triggered
+
+void M579(char letters[], float numbers[]); // Set scale factor on axes
+
+void M928(String file); // Start SD logging
+
+void G(); // List all G-Codes
+void M(); // List all M-Codes
+
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
