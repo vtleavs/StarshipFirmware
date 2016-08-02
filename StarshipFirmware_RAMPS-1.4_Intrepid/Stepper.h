@@ -16,6 +16,9 @@ class Stepper
 			int get_stepnum() { return stepnum; }
 			int get_pulsewidth() { return stepnum; }
 			
+			bool is_absolute() { return absolute_pos; }
+			void set_absolute(bool abs_) { absolute_pos = abs_ }
+			
 		private:
 			// motor settings
 			int pulsewidth; // In microseconds
@@ -27,6 +30,7 @@ class Stepper
 			char step_pin;
 			char dir_pin;
 			bool endstop_hit;
+			bool absolute_pos;
 }
 
 inline void Stepper::step(bool dir)
