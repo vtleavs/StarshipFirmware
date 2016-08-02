@@ -23,15 +23,15 @@ extern bool G28_active;
 void G0(char letters[], float numbers[]); // Rapid Linear Move
 void G1(char letters[], float numbers[]); // Linear Move
 
-void G4(int m); // Dwell
+void G4(char letters[], float numbers[]); // Dwell
 
 void G5(char letters[], float numbers[]); // Polar Move ****
 
-void G10(float s); // Retract
-void Gll(float s); // Unretract
+void G10(char letters[], float numbers[]); // Retract
+void Gll(char letters[], float numbers[]); // Unretract
 
 void G20(); // Set units to in
-void G21(); // Set units to in
+void G21(); // Set units to mm
 
 void G27(char letters[], float numbers[]); // Move to origin (polar) ****
 void G28(char letters[], float numbers[]); // Move to origin (linear)
