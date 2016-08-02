@@ -46,112 +46,68 @@ void list_m_commands()
     Serial.println("M0: Unconditional Stop");
     Serial.println("M1: Conditional Stop");
     Serial.println("M5: Restart Firmware");
-    Serial.println("M0: Unconditional Stop");
-    Serial.println("M0: Unconditional Stop");
-    Serial.println("M0: Unconditional Stop");
-    Serial.println("M0: Unconditional Stop");
-    
-    void M0(); // Unconditional Stop
-void M1(); // Conditional Stop
-
-void M5(); // Restart firmware
-
-void M17(char letters[], float numbers[]); // Disable all stepper motors (polar) ****
-void M18(char letters[], float numbers[]);// Disable all stepper motors (linear)
-
-void M20(); // List SD card
-void M23(String file); // Select SD file
-void M24(); // Start/Resume SD print
-void M25(); // Pause SD print
-void M26(char letters[], float numbers[]); // Set SD position in bits
-void M27(); // Report SD print status
-void M29(); // Stop SD logging
-
-/*
-    M28-M30, SD write: not yet implemented
-*/
-
-void M32(String file); // Start SD print on file
-void M36(String file); // Return file info
-
-void M82(); // Set extruder to absolute mode
-void M83(); // Set extruder to relative mode
-
-void M92(char letters[], float numbers[]); // Set steps per unit
-void M98(String file); // Run macro
-void M98(char letters[], float numbers[]); // Run inline macro
-void M99(); // Return from inline macro
-
-void M104(char letters[], float numbers[]); // Set extruder temp
-void M105(); // Return extruder temp
-void M106(char letters[], float numbers[]); // Fan on
-void M107(char letters[], float numbers[]); // Fan off
-void M109(char letters[], float numbers[]); // Set extruder temp and wait
-
-void M112(); // Emergency Stop
-
-void M113(char letters[], float numbers[]); // Get current position (polar) ****
-void M114(char letters[], float numbers[]); // Get current position (linear)
-
-void M115(); // Get firmware version and Specs
-
-void M116(); // Wait for temperature
-
-void M118(char letters[], float numbers[]); // Display Message on LCD
-
-void M119(); // Get endstop status
-
-void M120(); // Stack Push
-void M121(); // Stack Pop
-
-void M122(); // Send diagnostic info
-
-void M140(char letters[], float numbers[]); // Set bed temperature
-void M144(); // Set bed to standby temp
-void M190(char letters[], float numbers[]); // Wait for bed to reach temp
-
-void M200(char letters[], float numbers[]); // Set max acceleration units/second^2 (polar)
-void M201(char letters[], float numbers[]); // Set max acceleration units/second^2 (linear)
-
-void M202(char letters[], float numbers[]); // Set max velocity mm/min (polar)
-void M203(char letters[], float numbers[]); // Set max velocity mm/min (linear)
-
-void M207(char letters[], float numbers[]); // set axis max (polar)
-void M208(char letters[], float numbers[]); // set axis max (linear)
-
-void M220(char letters[], float numbers[]); // Set speed factor percentage
-void M221(char letters[], float numbers[]); // Set extruder speed factor percentage
-
-void M226(); // G-Code initiated pause
-
-void M300(char letters[], float numbers[]); // Play beep sound
-
-void M301(char letters[], float numbers[]); // Set Extruder PID
-void M302(char letters[], float numbers[]); // Allow cold extrudes
-void M304(char letters[], float numbers[]); // Set Bed PID
-
-void M349(char letters[], float numbers[]); // Set microstepping mode (polar)
-void M350(char letters[], float numbers[]); // Set microstepping mode (linear)
-
-void M360(); // Report firmware config
-
-void M400(); // Wait for buffer to empty
-
-void M404(char letters[], float numbers[]); // Filament width and Nozzle diameter
-void M407(); // Display filament diameter
-
-void M502(); // Revert to factory settings
-void M503(); // Return print settings
-
-void M556(char letters[], float numbers[]); // Set axis compensation
-
-void M562(); // Reset temp fault
-
-void M577(char letters[], float numbers[]); // Wait for endstop to be triggered
-
-void M579(char letters[], float numbers[]); // Set scale factor on axes
-
-void M928(String file); // Start SD logging
+    Serial.println("M17: Disable All Steppers (polar)");
+    Serial.println("M18: Disable All Steppers (linear)");
+    Serial.println("M20: List SD card");
+    Serial.println("M23: Select SD file");
+    Serial.println("M24: Start/Resume SD print");
+    Serial.println("M25: Pause SD print");
+    Serial.println("M26: Set SD position in bits");
+    Serial.println("M27: Report SD print status");
+    Serial.println("M29: Stop SD logging");
+    Serial.println("M32: Start SD print on file");
+    Serial.println("M36: Return file info");
+    Serial.println("M82: Set extruder to absolute mode");
+    Serial.println("M83: Set extruder to relative mode");
+    Serial.println("M92: Set steps per unit");
+    Serial.println("M98 filename: Run macro");
+    Serial.println("M98 Pnnn: Run inline macro on line Pnnn");
+    Serial.println("M99: Return from inline macro");
+    Serial.println("M104: Set extruder temp");
+    Serial.println("M105: Return extruder temp");
+    Serial.println("M106: Fan on");
+    Serial.println("M107: Fan off");
+    Serial.println("M109: Set extruder temp and wait");
+    Serial.println("M112: Emergency Stop");
+    Serial.println("M113: Get current position (polar)");
+    Serial.println("M114: Get current position (linear)");
+    Serial.println("M115: Get firmware version and Specs");
+    Serial.println("M116: Wait for temperature");
+    Serial.println("M118: Display Message on LCD");
+    Serial.println("M119: Get Endstop Status");
+    Serial.println("M120: Stack Push");
+    Serial.println("M121: Stack Pop");
+    Serial.println("M122: Send diagnostic info");
+    Serial.println("M140: Set bed temperature");
+    Serial.println("M144: Set bed to standby temp");
+    Serial.println("M190: Wait for bed to reach temp");
+    Serial.println("M200: Set max acceleration units/second^2 (polar)");
+    Serial.println("M201: Set max acceleration units/second^2 (linear)");
+    Serial.println("M202: Set max velocity mm/min (polar)");
+    Serial.println("M203: Set max velocity mm/min (linear)");
+    Serial.println("M207: Set axis max (polar)");
+    Serial.println("M208: Set axis max (linear)");
+    Serial.println("M220: Set speed factor percentage");
+    Serial.println("M221: Set extruder speed factor percentage");
+    Serial.println("M226: G-Code initiated pause");
+    Serial.println("M300: Play beep sound");
+    Serial.println("M301: Set Extruder PID");
+    Serial.println("M302: Allow cold extrudes");
+    Serial.println("M304: Set Bed PID");
+    Serial.println("M349: Set microstepping mode (polar)");
+    Serial.println("M350: Set microstepping mode (linear)");
+    Serial.println("M360: Report firmware config");
+    Serial.println("M400: Wait for buffer to empty");
+    Serial.println("M404: Set Filament Width and Nozzle diameter");
+    Serial.println("M407: Display filament diameter");
+    Serial.println("M502: Revert to factory settings");
+    Serial.println("M503: Return print settings");
+    Serial.println("M556: Set axis compensation");
+    Serial.println("M562: Reset temp fault");
+    Serial.println("M577: Wait for endstop to be triggered");
+    Serial.println("M579: Set scale factor on axes");
+    Serial.println("M928: Start SD logging");
+    Serial.println();
 }
 
 #endif
