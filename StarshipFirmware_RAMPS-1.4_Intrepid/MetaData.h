@@ -2,6 +2,8 @@
 #ifndef _METADATA_H_
 #define _METADATA_H_
 
+#include <Arduino.h>
+
 class MetaData  // contains information about the program
 {
   public:
@@ -16,6 +18,6 @@ class MetaData  // contains information about the program
     //char version_name[];// = "StarShip 3D RAMPS 1.4 Firmware version 0.01";
 };
 
-MetaData metadata;
+extern MetaData metadata;
 
 #endif

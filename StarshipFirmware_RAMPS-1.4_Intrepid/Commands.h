@@ -3,6 +3,7 @@
 #define _COMMANDS_H_
 
 void parse_command(String command);
+char find_letter(char letters[], char c);
 
 // COMMAND ACTIVE - set to true if command is currently active
 extern bool G0_active;
@@ -82,8 +83,8 @@ void M109(char letters[], float numbers[]); // Set extruder temp and wait
 
 void M112(); // Emergency Stop
 
-void M113(char letters[], float numbers[]); // Get current position (polar) ****
-void M114(char letters[], float numbers[]); // Get current position (linear)
+void M113(); // Get current position (polar) ****
+void M114(); // Get current position (linear)
 
 void M115(); // Get firmware version and Specs
 

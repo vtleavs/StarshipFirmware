@@ -51,16 +51,22 @@ void parse_command(String command)
   {
     Serial.print(letters[i]);
     Serial.print(":");
-    Serial.print(numbers[i]);
-    Serial.print(", ");
+    if(letters[1] != 0)
+    {
+      Serial.print(numbers[i]);
+      Serial.print(", ");
+    }
   }
   Serial.println();
-  
+
   if(letters[0] == 'G')
   {
     switch((int)numbers[0])
     {
-      case 0 : G0(letters, numbers);
+      case 0 : if(letters[1] == 0)
+                  G();
+                  break;
+               G0(letters, numbers);
                break;
       case 1 : G1(letters, numbers);
                break;
@@ -76,12 +82,27 @@ void parse_command(String command)
   {
     switch((int)numbers[0])
     {
+      case 0 : if(letters[1] == 0)
+                  M();
+                  break;
       case 5 : M5();
                 break;
+      case 113 : M113();
+                 break;
       default : Serial.println("Command Unsupported");
                 break;
     }
   }
+}
+
+char find_letter(char letters[], char c)
+{
+  for(char i = 0; i < 13; ++i)
+  {
+    if(letters[i] == c)
+       return i;
+  }
+  return 99;
 }
 
 // G COMMANDS
@@ -110,7 +131,7 @@ void G4(char letters[], float numbers[])
 
 void G5(char letters[], float numbers[])
 {
-  Serial.println("polar move");
+  Serial.println("polar move - unimplemented");
 }
 
 void G10(char letters[], float numbers[])
@@ -147,12 +168,18 @@ void G28(char letters[], float numbers[])
 
 void G90()
 {
-  
+  Serial.println("setting axes to absolute mode...");
+  settings.polar_stepper.set_absolute(true);
+  settings.radial_stepper.set_absolute(true);
+  settings.z_stepper.set_absolute(true);
 }
 
 void G91()
 {
-  
+  Serial.println("setting axes to relative mode...");
+  settings.polar_stepper.set_absolute(false);
+  settings.radial_stepper.set_absolute(false);
+  settings.z_stepper.set_absolute(false);
 }
 
 void G92(char letters[], float numbers[])
@@ -299,14 +326,23 @@ void M112()
   
 }
 
-void M113(char letters[], float numbers[])
+void M113()
 {
-  
+  Serial.print("Polar Position: ");
+  Serial.print(settings.polar_stepper.get_stepnum() * settings.step_angle);
+  Serial.println("deg");
+
+  Serial.print("Radial Position: ");
+  Serial.print(settings.radial_stepper.get_pos());
+  Serial.println(settings.units);
+
+  Serial.print("Z Position: ");
+  Serial.print(settings.z_stepper.get_pos());
+  Serial.println(settings.units);
 }
 
-void M114(char letters[], float numbers[]) 
+void M114() 
 { 
-  M113(letters, numbers); 
 }
 
 void M115()
@@ -362,7 +398,13 @@ void M190(char letters[], float numbers[])
 
 void M200(char letters[], float numbers[])
 {
-  
+    char p = find_letter(letters, 'P');
+    if(p != 99)
+    {
+      Serial.print("Polar Position: ");
+      Serial.print(numbers[p]);
+      Serial.println(settings.units);
+    }
 }
 
 void M201(char letters[], float numbers[]) 

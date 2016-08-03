@@ -1,5 +1,5 @@
 #include "Pins.h"
-#include "Body.h"
+#include "Messages.h"
 #include "Commands.h"
 
 bool start = true;
@@ -41,7 +41,7 @@ void loop()
     if(start)
     {
         start = false;
-        body(); // if on start, run the main body of the program
+        header(); // if on start, run the main body of the program
     }
     
     String command = Serial.readString();
