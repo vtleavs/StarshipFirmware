@@ -95,7 +95,7 @@ void parse_command(String command)
   }
 }
 
-char find_letter(char letters[], char c)
+char find_letter(const char (&letters)[13], char c)
 {
   for(char i = 0; i < 13; ++i)
   {
@@ -112,34 +112,34 @@ void G()
   list_g_commands();
 }
 
-void G0(char letters[], float numbers[])
+void G0(const char (&letters)[13], const float (&numbers)[13])
 { 
   Serial.println("rapid linear move, calling G1");
-  G1(letters, numbers); 
+  //G1(letters, numbers); 
 }
 
-void G1(char letters[], float numbers[]) 
+void G1(const char (&letters)[13], const float (&numbers)[13]) 
 { 
   Serial.println("linear move, calling G5");
   G5(letters, numbers); 
 }
 
-void G4(char letters[], float numbers[])
+void G4(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void G5(char letters[], float numbers[])
+void G5(const char (&letters)[13], const float (&numbers)[13])
 {
   Serial.println("polar move - unimplemented");
 }
 
-void G10(char letters[], float numbers[])
+void G10(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void Gll(char letters[], float numbers[])
+void Gll(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
@@ -156,12 +156,12 @@ void G21()
   settings.units = "mm";
 }
 
-void G27(char letters[], float numbers[])
+void G27(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void G28(char letters[], float numbers[]) 
+void G28(const char (&letters)[13], const float (&numbers)[13]) 
 { 
   G27(letters, numbers); 
 }
@@ -182,7 +182,7 @@ void G91()
   settings.z_stepper.set_absolute(false);
 }
 
-void G92(char letters[], float numbers[])
+void G92(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
@@ -211,12 +211,12 @@ void M5()
   asm volatile ("  jmp 0");
 }
 
-void M17(char letters[], float numbers[])
+void M17(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void M18(char letters[], float numbers[])
+void M18(const char (&letters)[13], const float (&numbers)[13])
 { 
   M17(letters, numbers); 
 }
@@ -241,7 +241,7 @@ void M25()
   
 }
 
-void M26(char letters[], float numbers[])
+void M26(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
@@ -276,7 +276,7 @@ void M83()
   
 }
 
-void M92(char letters[], float numbers[])
+void M92(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
@@ -286,7 +286,7 @@ void M98(String file)
   
 }
 
-void M98(char letters[], float numbers[])
+void M98(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
@@ -296,7 +296,7 @@ void M99()
   
 }
 
-void M104(char letters[], float numbers[])
+void M104(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
@@ -306,17 +306,17 @@ void M105()
   
 }
 
-void M106(char letters[], float numbers[])
+void M106(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void M107(char letters[], float numbers[])
+void M107(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void M109(char letters[], float numbers[])
+void M109(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
@@ -356,7 +356,7 @@ void M116()
 }
 
 
-void M118(char letters[], float numbers[])
+void M118(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
@@ -381,7 +381,7 @@ void M122()
   
 }
 
-void M140(char letters[], float numbers[])
+void M140(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
@@ -391,12 +391,12 @@ void M144()
   
 }
 
-void M190(char letters[], float numbers[])
+void M190(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void M200(char letters[], float numbers[])
+void M200(const char (&letters)[13], const float (&numbers)[13])
 {
     char p = find_letter(letters, 'P');
     if(p != 99)
@@ -407,37 +407,37 @@ void M200(char letters[], float numbers[])
     }
 }
 
-void M201(char letters[], float numbers[]) 
+void M201(const char (&letters)[13], const float (&numbers)[13]) 
 { 
   M200(letters, numbers); 
 } 
 
-void M202(char letters[], float numbers[])
+void M202(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void M203(char letters[], float numbers[]) 
+void M203(const char (&letters)[13], const float (&numbers)[13]) 
 { 
   M200(letters, numbers); 
 } 
 
 
-void M207(char letters[], float numbers[])
+void M207(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void M208(char letters[], float numbers[]) 
+void M208(const char (&letters)[13], const float (&numbers)[13]) 
 { 
   M207(letters, numbers); 
 }
-void M220(char letters[], float numbers[])
+void M220(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void M221(char letters[], float numbers[])
+void M221(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
@@ -447,32 +447,32 @@ void M226()
   
 }
 
-void M300(char letters[], float numbers[])
+void M300(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void M301(char letters[], float numbers[])
+void M301(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void M302(char letters[], float numbers[])
+void M302(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void M304(char letters[], float numbers[])
+void M304(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void M349(char letters[], float numbers[])
+void M349(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void M350(char letters[], float numbers[])
+void M350(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
@@ -487,7 +487,7 @@ void M400()
   
 }
 
-void M404(char letters[], float numbers[])
+void M404(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
@@ -507,7 +507,7 @@ void M503()
   
 }
 
-void M556(char letters[], float numbers[])
+void M556(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
@@ -517,12 +517,12 @@ void M562()
   
 }
 
-void M577(char letters[], float numbers[])
+void M577(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
 
-void M579(char letters[], float numbers[])
+void M579(const char (&letters)[13], const float (&numbers)[13])
 {
   
 }
